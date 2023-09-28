@@ -1,23 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+import Form from './components/1-forms/Form';
+import KeyboardClipsBoard from './components/2-keyboardClipboards/KeyboardClipsBoard';
+import MouseEvents from './components/3-mouseEvents/MouseEvents';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+
+      <h1>UseState Hoook Forms Mause and Keyboard Events</h1>
+<Form/>
+<KeyboardClipsBoard/>
+<MouseEvents/>
     </div>
   );
 }
