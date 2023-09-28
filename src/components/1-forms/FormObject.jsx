@@ -1,11 +1,12 @@
 import { useState } from "react"
 const Form = () => {
-const[username, setUsername]=useState("")
-const[email, setEmail]=useState("")
-const[password, setPassword]=useState("")
-const handleUsername=(e)=>{
-setUsername(e.target.value)
-    }
+
+const [formData, setFormData]=useState({
+  username:"",
+  email:"", 
+  password:"",
+})
+const{username,email,password}=formData
     const handleSubmit=(e)=>{
         e.preventDefault()
 
@@ -14,12 +15,22 @@ setUsername(e.target.value)
       email:${email}
       password:${password}
       `)
+      setFormData({
+        username:"",
+        email:"",
+        password:"",
+      })
+            }
+const handleFormData=(e)=>{
+
+              
+setFormData({...formData,[e.target.id]:e.target.value})
             }
    
   
       return (
     <div className="container mt-4">
-        <h2 className="text-center text-success"> FORMS IN REACT</h2>
+        <h2 className="text-center text-success"> FORM OBJECT IN REACT</h2>
     <form onSubmit={handleSubmit}>
 
     <div className="mb-3">
@@ -29,9 +40,10 @@ setUsername(e.target.value)
     <input
       type="text"
       className="form-control"
-      id="Username"
+      id="username"
       aria-describedby="emailHelp" 
-      onChange={handleUsername}
+      onChange={handleFormData}
+      value={username}
     />
     <div id="emailHelp" className="form-text">
     </div>
@@ -43,9 +55,11 @@ setUsername(e.target.value)
     <input
       type="email"
       className="form-control"
-      id="username"
+      id="email"
       aria-describedby="emailHelp"
-      onChange={(e)=>setEmail(e.target.value)}
+      onChange={handleFormData}
+      value={email}
+
     /> 
     <div id="emailHelp" className="form-text">
     </div>
@@ -58,7 +72,8 @@ setUsername(e.target.value)
       type="password"
       className="form-control"
       id="Password"
-      onChange={(e)=>setPassword(e.target.value)}
+      onChange={handleFormData}
+     
 
     />
   </div>
